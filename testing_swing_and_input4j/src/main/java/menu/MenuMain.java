@@ -1,4 +1,4 @@
-package OpenCFSD;
+package menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,6 +42,7 @@ public class MenuMain extends JFrame {
         manuMain_panelRight.setPreferredSize(new Dimension(100,100));
         manuMain_panelCentre.setPreferredSize(new Dimension(100,100));
 
+        //manuMain_panelCentre.set;
         manuMain_panelCentre.add(scrollPane, BorderLayout.CENTER);
 
         add(manuMain_panelTop, BorderLayout.NORTH);
