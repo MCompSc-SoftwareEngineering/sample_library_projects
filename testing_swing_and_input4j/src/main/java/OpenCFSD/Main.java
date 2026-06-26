@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 public class Main
 {
-    // 1. Create a custom subclass of JPanel
     static class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 
@@ -27,7 +27,6 @@ public class Main
             }
         }
 
-        // 2. Override paintComponent to render the background image
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g); // Handles normal background painting logic
@@ -39,6 +38,7 @@ public class Main
         }
     }
 
+
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
@@ -46,13 +46,22 @@ public class Main
         MenuMain menuMain = new MenuMain();
         while(menuMain == null) { }
 
+        menuMain.printConsoleAndOutput("test");
+
         Thread thread = new Thread(() -> {
             try (var inputDevices = InputDevices.init()) {
                 while (!inputDevices.getAll().isEmpty()) {
                     // iterate all available input devices and poll their data every second
                     for (var inputDevice : inputDevices.getAll()) {
-                        inputDevice.poll();
-                        System.out.println(inputDevice.getName() + ":" + inputDevice.getComponents());
+                        if(Objects.equals(inputDevice.getName(), "Xbox Wireless Controller"))
+                        {
+                            MenuMain.printConsoleAndOutput(inputDevice.getName() + ": ALPHA");
+                            inputDevice.poll();
+                            for(var component : inputDevice.getComponents()) {
+                                MenuMain.printConsoleAndOutput("input: " + component);
+                            }
+                            //MenuMain.printConsoleAndOutput(inputDevice.getName() + ":" + inputDevice.getComponents());
+                        }
                     }
                     Thread.sleep(1000);
                 }
