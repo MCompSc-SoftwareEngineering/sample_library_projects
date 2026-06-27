@@ -15,6 +15,11 @@ public class MenuMain extends JFrame {
 
     public MenuMain()
     {
+
+    }
+
+    public void createAndShowGUI_MenuMain()
+    {
         setTitle("");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800,600);
