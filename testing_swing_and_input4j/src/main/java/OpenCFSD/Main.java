@@ -47,8 +47,8 @@ public class Main
 
 
 
-        EventListener_XBoxController scanner = new EventListener_XBoxController();
-        while(scanner == null) { }
+        //EventListener_XBoxController scanner = new EventListener_XBoxController();
+        //while(scanner == null) { }
 
         /*
         SwingUtilities.invokeLater(() -> {

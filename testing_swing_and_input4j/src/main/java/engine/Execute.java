@@ -4,6 +4,7 @@ import io.WriteQueCLIENTINPUTSEND;
 import com.sun.jna.Pointer;
 import io.WriteQueCLIENTOUTPUTRECIEVE;
 import menu.MenuMain;
+import threads.EventListener_XBoxController;
 
 import javax.swing.*;
 
@@ -16,6 +17,7 @@ public class Execute
     //private static Pointer _stat_PGM_LaunchQue_Client;
     private static Pointer _stat_PGM_WriteQue_Client_InputSend;
     private static Pointer _stat_PGM_WriteQue_Client_OutputRecieve;
+    private static EventListener_XBoxController _stat_THREAD_EventListener_XBoxController;
 // public.
     public Execute() {
         System.out.printf("entered CLASS Execute()%n");
@@ -28,9 +30,6 @@ public class Execute
     public Execute_Control dyn_CLASS_get_Execute_Control()
     {
         return stat_CLASS_get_Execute_Control();
-    }
-    public void dyn_APP_Draw_2D_Menu() {
-        stat_CLASS_boot3_INITIALISE_MenuMain();
     }
     public void dyn_REG_boot1_DEFINE_Execute(Framework obj) {
         System.out.printf("entered dyn_REG_boot1_DEFINE_Execute().%n");
@@ -97,14 +96,12 @@ public class Execute
         return stat_PGM_get_WriteQue_Client_OutputRecieve();
     }
 
-    static private void stat_CLASS_boot0_DECLAIRE_Execute()
-    {
+    static private void stat_CLASS_boot0_DECLAIRE_Execute() {
         System.out.printf("entered stat_CLASS_boot0_DECLAIRE_Execute().%n");
 
         System.out.printf("exiting stat_CLASS_boot0_DECLAIRE_Execute().%n");
     }
-    private static void stat_CLASS_boot1_DEFINE_Execute()
-    {
+    private static void stat_CLASS_boot1_DEFINE_Execute() {
         System.out.printf("entered stat_CLASS_boot1_DEFINE_Execute().%n");
         stat_CLASS_boot1_DEFINE_Execute_Control();
         stat_PGM_boot1_DEFINE_LaunchQue_Client();
@@ -113,8 +110,7 @@ public class Execute
         stat_CLASS_boot1_DEFINE_MenuMain();
         System.out.printf("exiting stat_CLASS_boot1_DEFINE_Execute().%n");
     }
-    private static void stat_CLASS_boot3_INITIALISE_Execute()
-    {
+    private static void stat_CLASS_boot3_INITIALISE_Execute() {
         System.out.printf("entered stat_CLASS_boot3_INITIALISE_Execute().%n");
         stat_CLASS_boot3_INITIALISE_Execute_Control();
         stat_PGM_boot3_INITIALISE_LaunchQue_Client();
@@ -122,27 +118,26 @@ public class Execute
         stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve();
         System.out.printf("exiting stat_CLASS_boot3_INITIALISE_Execute().%n");
     }
-    private static void stat_REG_boot0_DECLAIRE_Execute()
-    {
+    private static void stat_REG_boot0_DECLAIRE_Execute() {
             System.out.printf("entered stat_REG_boot0_DECLAIRE_Execute().%n");
 
             System.out.printf("exiting stat_REG_boot0_DECLAIRE_Execute().%n");
     }
 // private.
-    private static void stat_CLASS_boot1_DEFINE_Execute_Control()
-    {
+    private void dyn_APP_Draw_2D_Menu() {
+        stat_CLASS_boot3_INITIALISE_MenuMain();
+    }
+    static void stat_CLASS_boot1_DEFINE_Execute_Control() {
         System.out.printf("entered stat_CLASS_boot1_DEFINE_Execute_Control().%n");
         _stat_CLASS_Execute_Control = null;
         System.out.printf("exiting stat_CLASS_boot1_DEFINE_Execute_Control().%n");
     }
-    private static void stat_CLASS_boot1_DEFINE_MenuMain()
-    {
+    private static void stat_CLASS_boot1_DEFINE_MenuMain() {
         System.out.printf("entered stat_CLASS_boot1_DEFINE_Execute_Control().%n");
         _stat_CLASS_MenuMain = null;
         System.out.printf("exiting stat_CLASS_boot1_DEFINE_Execute_Control().%n");
     }
-    private static void stat_CLASS_boot3_INITIALISE_Execute_Control()
-    {
+    private static void stat_CLASS_boot3_INITIALISE_Execute_Control() {
         System.out.printf("entered stat_CLASS_boot3_INITIALISE_Execute_Control().%n");
         _stat_CLASS_Execute_Control = new Execute_Control();
         try {
@@ -153,8 +148,7 @@ public class Execute
         }
         System.out.printf("exiting stat_CLASS_boot3_INITIALISE_Execute_Control().%n");
     }
-    private static void stat_CLASS_boot3_INITIALISE_MenuMain()
-    {
+    private static void stat_CLASS_boot3_INITIALISE_MenuMain() {
         System.out.printf("entered stat_CLASS_boot3_INITIALISE_Execute_Control().%n");
         _stat_CLASS_MenuMain = new MenuMain();
         try {
@@ -167,20 +161,16 @@ public class Execute
         }
         System.out.printf("exiting stat_CLASS_boot3_INITIALISE_Execute_Control().%n");
     }
-    private static Execute_Control stat_CLASS_get_Execute_Control()
-    {
+    private static Execute_Control stat_CLASS_get_Execute_Control() {
         return _stat_CLASS_Execute_Control;
     }
-    private static MenuMain stat_CLASS_get_MenuMain()
-    {
+    private static MenuMain stat_CLASS_get_MenuMain() {
         return _stat_CLASS_MenuMain;
     }
-    private static void stat_REG_boot1_DEFINE_List_Of_Threads()
-    {
+    private static void stat_REG_boot1_DEFINE_List_Of_Threads() {
         _stat_REG_List_Of_Threads = null;
     }
-    private static void stat_REG_boot2_SUBSTANTIATE_List_Of_Threads(Framework obj)
-    {
+    private static void stat_REG_boot2_SUBSTANTIATE_List_Of_Threads(Framework obj) {
         _stat_REG_List_Of_Threads = new Thread[obj.dyn_CLASS_get_Global().dyn_REG_get_numberOfCores()];
         try {
             stat_REG_get_ptr_List_Of_Threads();
@@ -200,44 +190,44 @@ public class Execute
             int finalThreadId = threadId;
             _stat_REG_List_Of_Threads[threadId] = new Thread(() -> obj.dyn_CLASS_get_App().dyn_CLASS_get_Execute().dyn_APP_Draw_2D_Menu());
             _stat_REG_List_Of_Threads[threadId].start();
+
+            finalThreadId++;
+            _stat_REG_List_Of_Threads[threadId] = new Thread(() -> obj.dyn_THREAD_get_EventListener_XBoxController().doScanOfXBoxControllers());
+            _stat_REG_List_Of_Threads[threadId].start();
         }
     }
-    private static Thread[] stat_REG_get_ptr_List_Of_Threads()
-    {
+    private static Thread[] stat_REG_get_ptr_List_Of_Threads() {
         return _stat_REG_List_Of_Threads;
     }
-    private static void stat_PGM_boot1_DEFINE_LaunchQue_Client()
-    {
+    private static EventListener_XBoxController stat_REG_get_ptr_EventListener_XBoxController() {
+        return _stat_THREAD_EventListener_XBoxController;
+    }
+    private static void stat_PGM_boot1_DEFINE_LaunchQue_Client() {
         System.out.printf("entered Execute stat_PGM_boot1_DEFINE_LaunchQue_Client().%n");
         //_stat_PGM_LaunchQue_Client = null;
         System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_LaunchQue_Client().%n");
     }
-    private static void stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend()
-    {
+    private static void stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend() {
         System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend().%n");
         _stat_PGM_WriteQue_Client_InputSend = null;
         System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend().%n");
     }
-    private static void stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve()
-    {
+    private static void stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve() {
         System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve().%n");
         _stat_PGM_WriteQue_Client_OutputRecieve = null;
         System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve().%n");
     }
-    private static void stat_PGM_boot3_INITIALISE_LaunchQue_Client()
-    {
+    private static void stat_PGM_boot3_INITIALISE_LaunchQue_Client() {
         System.out.printf("entered stat_PGM_boot3_INITIALISE_LaunchQue_Client().%n");
         //_stat_PGM_LaunchQue_Client = LaunchQue_Client.app_FUNCT_generate_Program();
         System.out.printf("exiting stat_PGM_boot3_INITIALISE_LaunchQue_Client().%n");
     }
-    private static void stat_PGM_boot3_INITIALISE_WriteQue_Client_InputSend()
-    {
+    private static void stat_PGM_boot3_INITIALISE_WriteQue_Client_InputSend() {
         System.out.printf("entered stat_PGM_boot3_INITIALISE_WriteQue_Client_InputSend().%n");
         _stat_PGM_WriteQue_Client_InputSend = WriteQueCLIENTINPUTSEND.app_FUNCT_generate_Program();
         System.out.printf("exiting stat_PGM_boot3_INITIALISE_WriteQue_Client_InputSend().%n");
     }
-    private static void stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve()
-    {
+    private static void stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve() {
         System.out.printf("entered stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve().%n");
         _stat_PGM_WriteQue_Client_OutputRecieve = WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_generate_Program();
         System.out.printf("exiting stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve().%n");
@@ -250,8 +240,7 @@ public class Execute
     {
         return _stat_PGM_WriteQue_Client_InputSend;
     }
-    private static Pointer stat_PGM_get_WriteQue_Client_OutputRecieve()
-    {
+    private static Pointer stat_PGM_get_WriteQue_Client_OutputRecieve() {
         return _stat_PGM_WriteQue_Client_OutputRecieve;
     }
 }

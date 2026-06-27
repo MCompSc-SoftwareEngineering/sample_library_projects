@@ -1,17 +1,12 @@
 package threads;
 
 import de.gurkenlabs.input4j.InputDevices;
-import engine.Global;
+import io.WriteQueCLIENTOUTPUTRECIEVE;
 import menu.MenuMain;
-
 import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
-
-import static threads.EventListener_XBoxController.componentOfController.KEY_RECORD;
-
 public class EventListener_XBoxController {
-
     public enum componentOfController {
         KEY_RECORD,
         BUTTON_0,
@@ -43,14 +38,13 @@ public class EventListener_XBoxController {
         DPAD_RIGHT,
         NULL
     }
-
     private static componentOfController componentToSample = componentOfController.NULL;
-
-    public EventListener_XBoxController()
+    public void doScanOfXBoxControllers()
     {
          Thread thread = new Thread(() -> {
             try (var inputDevices = InputDevices.init()) {
                 while (!inputDevices.getAll().isEmpty()) {
+                    WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_write_Start(0);
                     // iterate all available input devices and poll their data every second
                     for (var inputDevice : inputDevices.getAll()) {
                         if(Objects.equals(inputDevice.getName(), "Xbox Wireless Controller"))
@@ -147,7 +141,7 @@ public class EventListener_XBoxController {
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case NULL:
-                                            
+
                                             break;
                                     }
                                 }
@@ -156,6 +150,7 @@ public class EventListener_XBoxController {
                             //MenuMain.printConsoleAndOutput(inputDevice.getName() + ":" + inputDevice.getComponents());
                         }
                     }
+                    WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_write_End(0);
                     Thread.sleep(1000);
                 }
             } catch (IOException | InterruptedException e) {
@@ -254,7 +249,7 @@ public class EventListener_XBoxController {
                 componentToSample = componentOfController.NULL;
                 break;
             case NULL:
-                componentToSample = KEY_RECORD;
+                componentToSample = componentOfController.KEY_RECORD;
                 break;
         }
     }

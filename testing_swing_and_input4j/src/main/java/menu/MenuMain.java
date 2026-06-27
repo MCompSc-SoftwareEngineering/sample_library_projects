@@ -1,5 +1,7 @@
 package menu;
 
+import io.WriteQueCLIENTOUTPUTRECIEVE;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -26,6 +28,8 @@ public class MenuMain extends JFrame {
         setLayout(new BorderLayout(4,4 ));
         setLocationRelativeTo(null);
         setVisible(true);
+
+        WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_write_Start(1);
 
         manuMain_panelTop = new JPanel();
         manuMain_panelBottom= new JPanel();
@@ -58,6 +62,8 @@ public class MenuMain extends JFrame {
 
         outputTextArea = new JTextArea();
         manuMain_panelCentre.add(outputTextArea);
+
+        WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_write_End(1);
     }
 
     public static void printConsoleAndOutput(String message) {
