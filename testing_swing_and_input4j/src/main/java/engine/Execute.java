@@ -16,6 +16,8 @@ public class Execute
     private static Thread[] _stat_REG_List_Of_Threads;
     //private static Pointer _stat_PGM_LaunchQue_Client;
     private static Pointer _stat_PGM_WriteQueForThreadsAt_InputPerihperalSamples;
+    private static Pointer _stat_PGM_WriteQueForThreadsAt_OutputGameInstanaceData;
+    private static Pointer _stat_PGM_WriteQue_Client_InputSend;
     private static Pointer _stat_PGM_WriteQue_Client_OutputRecieve;
     private static EventListener_XBoxController _stat_THREAD_EventListener_XBoxController;
 // public.
