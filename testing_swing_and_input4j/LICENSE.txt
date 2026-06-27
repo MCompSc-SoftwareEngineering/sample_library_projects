@@ -1,6 +1,4 @@
-MIT License
-
-Copyright (c) 2026 OpenCFSD - Java Assembly; Client, Server. Brenton James Maddocks BEng(CompSys).
+Copyright (c) 2026 Package Samples - Swing and Input4j. Brenton James Maddocks BEng(CompSys).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
