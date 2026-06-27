@@ -30,7 +30,7 @@ public class ClientAssembly
         System.out.printf("started independent STRUCT Framework() - DECLAIRE, DEFINE INITIALISE, Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
         stat_CLASS_get_Framework().dyn_STRUCT_boot0_DECLAIRE();
         stat_CLASS_get_Framework().dyn_SRUCT_boot1_DEFINE();
-        stat_CLASS_get_Framework().dyn_STRUCT_boot3_INITIALISE();
+        stat_CLASS_get_Framework().dyn_STRUCT_boot3_INITIALISE(stat_CLASS_get_Framework());
         System.out.printf("done independent STRUCT Framework() - DECLAIRE, DEFINE INITIALISE, Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");
 
         System.out.printf("started independent STRUCT User_Input() - DECLAIRE, DEFINE INITIALISE, Registers - DEFINE, SUBSTANTIATE, INITIALISE.%n");

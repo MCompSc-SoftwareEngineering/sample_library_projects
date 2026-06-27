@@ -1,8 +1,12 @@
 package threads;
 
 import de.gurkenlabs.input4j.InputDevices;
+import engine.Framework;
 import io.WriteQueCLIENTOUTPUTRECIEVE;
+import io.WriteQue_InputPerihperalSamples;
 import menu.MenuMain;
+import structs.peripheralSamples.xboxController;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
@@ -39,17 +43,17 @@ public class EventListener_XBoxController {
         NULL
     }
     private static componentOfController componentToSample = componentOfController.NULL;
-    public void doScanOfXBoxControllers()
+    public void doScanOfXBoxControllers(Framework obj)
     {
          Thread thread = new Thread(() -> {
             try (var inputDevices = InputDevices.init()) {
                 while (!inputDevices.getAll().isEmpty()) {
-                    WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_write_Start(0);
                     // iterate all available input devices and poll their data every second
                     for (var inputDevice : inputDevices.getAll()) {
                         if(Objects.equals(inputDevice.getName(), "Xbox Wireless Controller"))
                         {
                             MenuMain.printConsoleAndOutput(inputDevice.getName() + ": ALPHA");
+                            xboxController sampleTEMP = obj.dyn_REG_get_Item_InputPeripheralSampled_Data();
                             inputDevice.poll();
                             cycleToNextComponent();
                             for(var component : inputDevice.getComponents()) {
@@ -57,100 +61,129 @@ public class EventListener_XBoxController {
                                     switch(componentToSample)
                                     {
                                         case KEY_RECORD:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_0:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_1:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BTN_C:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_2:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_3:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BTN_Z:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_4:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_5:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BTN_TL2:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BTN_TR2:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_6:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_7:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_10:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_8:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case BUTTON_9:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case LEFT_AXIS_X:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case LEFT_AXIS_Y:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case LEFT_AXIS_Z:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case RIGHT_AXIS_Z:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case ABS_GAS:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case ABS_BRAKE:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case DPAD_LEFT_RIGHT:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case DPAD_UP_DOWN:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case DPAD_UP:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case DPAD_DOWN:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case DPAD_LEFT:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case DPAD_RIGHT:
+                                            //sampleTEMP. = component.getData();
                                             MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                             break;
                                         case NULL:
-
                                             break;
                                     }
                                 }
+                                WriteQue_InputPerihperalSamples.app_FUNCT_write_Start(0);
+                                //obj.dyn_CLASS_get_App().dyn_CLASS_get_Data().dyn_CLASS_get_INSTANCE_Game()./* set values of float with*/(sampleTEMP); //todo
                                 cycleToNextComponent();
                             }
                             //MenuMain.printConsoleAndOutput(inputDevice.getName() + ":" + inputDevice.getComponents());
                         }
                     }
-                    WriteQueCLIENTOUTPUTRECIEVE.app_FUNCT_write_End(0);
+                    WriteQue_InputPerihperalSamples.app_FUNCT_write_End(0);
                     Thread.sleep(1000);
                 }
             } catch (IOException | InterruptedException e) {

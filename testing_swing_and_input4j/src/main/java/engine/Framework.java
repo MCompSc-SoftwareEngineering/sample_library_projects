@@ -142,7 +142,7 @@ public class Framework
         //todo.
         System.out.printf("exiting stat_STRUCT_boot1_DEFINE().%n");
     }
-    public void dyn_STRUCT_boot3_INITIALISE()
+    public void dyn_STRUCT_boot3_INITIALISE(Framework obj)
     {
         System.out.printf("entered stat_STRUCT_boot3_INITIALISE().%n");
         stat_STRUCT_boot3_INITIALISE_User_Input();
@@ -152,7 +152,7 @@ public class Framework
         stat_STRUCT_boot3_INITIALISE_Input();
         stat_STRUCT_boot3_INITIALISE_Output();
         stat_STRUCT_boot3_INITIALISE_OutputGameInstance_Data();
-        stat_THREAD_boot3_INITIALISE_EventListener_XBoxController();
+        stat_THREAD_boot3_INITIALISE_EventListener_XBoxController(obj);
         //todo.
         System.out.printf("exiting stat_STRUCT_boot3_INITIALISE().%n");
     }
@@ -376,12 +376,12 @@ public class Framework
     private static void stat_THREAD_boot1_DEFINE_EventListener_XBoxController() {
         _stat_THREAD_EventListener_XBoxController = null;
     }
-    private static void stat_THREAD_boot3_INITIALISE_EventListener_XBoxController() {
+    private static void stat_THREAD_boot3_INITIALISE_EventListener_XBoxController(Framework obj) {
         System.out.printf("entered _stat_THREAD_boot3_INITIALISE_EventListener_XBoxController().%n");
         _stat_THREAD_EventListener_XBoxController = new EventListener_XBoxController();
         try {
             SwingUtilities.invokeLater(() -> {
-                stat_REG_get_EventListener_XBoxController().doScanOfXBoxControllers();
+                stat_REG_get_EventListener_XBoxController().doScanOfXBoxControllers(obj);
             });
         }
         catch (NullPointerException e) {
