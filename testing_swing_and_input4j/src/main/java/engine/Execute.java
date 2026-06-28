@@ -1,20 +1,16 @@
 package engine;
-//import main.io.LaunchQue_Client;
-import io.WriteQue_InputPerihperalSamples;
 import com.sun.jna.Pointer;
-import io.WriteQueCLIENTOUTPUTRECIEVE;
-import menu.MenuMain;
-import threads.EventListener_XBoxController;
+import io.*;
 
 import javax.swing.*;
-
-
+import menu.MenuMain;
+import threads.EventListener_XBoxController;
 public class Execute
 {
     private static Execute_Control _stat_CLASS_Execute_Control;
     private static MenuMain _stat_CLASS_MenuMain;
     private static Thread[] _stat_REG_List_Of_Threads;
-    //private static Pointer _stat_PGM_LaunchQue_Client;
+    private static Pointer _stat_PGM_LaunchQue_Client;
     private static Pointer _stat_PGM_WriteQueForThreadsAt_InputPerihperalSamples;
     private static Pointer _stat_PGM_WriteQueForThreadsAt_OutputGameInstanaceData;
     private static Pointer _stat_PGM_WriteQue_Client_InputSend;
@@ -108,6 +104,8 @@ public class Execute
         stat_CLASS_boot1_DEFINE_Execute_Control();
         stat_PGM_boot1_DEFINE_LaunchQue_Client();
         stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_InputPerihperalSamples();
+        stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_OutputGameInstanaceData();
+        stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend();
         stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve();
         stat_CLASS_boot1_DEFINE_MenuMain();
         System.out.printf("exiting stat_CLASS_boot1_DEFINE_Execute().%n");
@@ -117,6 +115,8 @@ public class Execute
         stat_CLASS_boot3_INITIALISE_Execute_Control();
         stat_PGM_boot3_INITIALISE_LaunchQue_Client();
         stat_PGM_boot3_INITIALISE_WriteQueForThreadsAt_InputPerihperalSamples();
+        stat_PGM_boot3_INITIALISE_WriteQueForThreadsAt_OutputGameInstanaceData();
+        stat_PGM_boot3_INITIALISE_WriteQue_Client_InputSend();
         stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve();
         System.out.printf("exiting stat_CLASS_boot3_INITIALISE_Execute().%n");
     }
@@ -204,15 +204,26 @@ public class Execute
     private static EventListener_XBoxController stat_REG_get_ptr_EventListener_XBoxController() {
         return _stat_THREAD_EventListener_XBoxController;
     }
+
     private static void stat_PGM_boot1_DEFINE_LaunchQue_Client() {
         System.out.printf("entered Execute stat_PGM_boot1_DEFINE_LaunchQue_Client().%n");
-        //_stat_PGM_LaunchQue_Client = null;
+        _stat_PGM_LaunchQue_Client = null;
         System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_LaunchQue_Client().%n");
     }
     private static void stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_InputPerihperalSamples() {
         System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_InputPerihperalSamples().%n");
         _stat_PGM_WriteQueForThreadsAt_InputPerihperalSamples = null;
         System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_InputPerihperalSamples().%n");
+    }
+    private static void stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_OutputGameInstanaceData() {
+        System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_OutputGameInstanaceData().%n");
+        _stat_PGM_WriteQueForThreadsAt_OutputGameInstanaceData = null;
+        System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_OutputGameInstanaceData().%n");
+    }
+    private static void stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend() {
+        System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend().%n");
+        _stat_PGM_WriteQue_Client_InputSend = null;
+        System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend().%n");
     }
     private static void stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve() {
         System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQue_Client_OutputRecieve().%n");
@@ -221,13 +232,23 @@ public class Execute
     }
     private static void stat_PGM_boot3_INITIALISE_LaunchQue_Client() {
         System.out.printf("entered stat_PGM_boot3_INITIALISE_LaunchQue_Client().%n");
-        //_stat_PGM_LaunchQue_Client = LaunchQue_Client.app_FUNCT_generate_Program();
+        _stat_PGM_LaunchQue_Client = LaunchQue_Client.app_FUNCT_generate_Program();
         System.out.printf("exiting stat_PGM_boot3_INITIALISE_LaunchQue_Client().%n");
     }
     private static void stat_PGM_boot3_INITIALISE_WriteQueForThreadsAt_InputPerihperalSamples() {
         System.out.printf("entered stat_PGM_boot3_INITIALISE_WriteQueForThreadsAt_InputPerihperalSamples().%n");
         _stat_PGM_WriteQueForThreadsAt_InputPerihperalSamples = WriteQue_InputPerihperalSamples.app_FUNCT_generate_Program();
         System.out.printf("exiting stat_PGM_boot3_INITIALISE_WriteQueForThreadsAt_InputPerihperalSamples().%n");
+    }
+    private static void stat_PGM_boot3_INITIALISE_WriteQueForThreadsAt_OutputGameInstanaceData() {
+        System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_OutputGameInstanaceData().%n");
+        _stat_PGM_WriteQueForThreadsAt_OutputGameInstanaceData = WriteQue_OutputGameInstanaceData.app_FUNCT_generate_Program();
+        System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQueForThreadsAt_OutputGameInstanaceData().%n");
+    }
+    private static void stat_PGM_boot3_INITIALISE_WriteQue_Client_InputSend() {
+        System.out.printf("entered Execute stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend().%n");
+        _stat_PGM_WriteQue_Client_InputSend = WriteQueCLIENTINPUTSEND.app_FUNCT_generate_Program();
+        System.out.printf("exiting Execute stat_PGM_boot1_DEFINE_WriteQue_Client_InputSend().%n");
     }
     private static void stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve() {
         System.out.printf("entered stat_PGM_boot3_INITIALISE_WriteQue_Client_OutputRecieve().%n");
@@ -236,11 +257,16 @@ public class Execute
     }
     private static Pointer stat_PGM_get_LaunchQue_Client()
     {
-        return null;//_stat_PGM_LaunchQue_Client;
+        return _stat_PGM_LaunchQue_Client;
     }
-    private static Pointer stat_PGM_get_WriteQueForThreadsAt_InputPerihperalSamples()
-    {
+    private static Pointer stat_PGM_get_WriteQueForThreadsAt_InputPerihperalSamples() {
         return _stat_PGM_WriteQueForThreadsAt_InputPerihperalSamples;
+    }
+    private static Pointer stat_PGM_get_WriteQueForThreadsAt_OutputGameInstanaceData() {
+        return _stat_PGM_WriteQueForThreadsAt_OutputGameInstanaceData;
+    }
+    private static Pointer stat_PGM_get_WriteQue_Client_InputSend() {
+        return _stat_PGM_WriteQue_Client_InputSend;
     }
     private static Pointer stat_PGM_get_WriteQue_Client_OutputRecieve() {
         return _stat_PGM_WriteQue_Client_OutputRecieve;

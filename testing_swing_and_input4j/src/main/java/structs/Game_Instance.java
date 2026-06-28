@@ -11,6 +11,9 @@ public class Game_Instance {
     {
         
     }
+    public void dyn_APP_saveSampleOfController(char controllerId, xboxController sample) {
+        stat_REG_get_Array_Of_xboxController()[controllerId] = sample;
+    }
     public void dyn_REG_boot1_DEFINE_Game_Instance(Framework obj) {
         System.out.printf("entered dyn_REG_boot1_DEFINE_Game_Instance().%n");
         stat_REG_boot1_DEFINE_xboxController();

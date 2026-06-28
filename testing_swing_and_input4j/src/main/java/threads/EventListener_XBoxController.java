@@ -1,17 +1,15 @@
 package threads;
-
 import de.gurkenlabs.input4j.InputDevices;
 import engine.Framework;
-import io.WriteQueCLIENTOUTPUTRECIEVE;
 import io.WriteQue_InputPerihperalSamples;
-import menu.MenuMain;
-import structs.peripheralSamples.xboxController;
-
 import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
+import menu.MenuMain;
+import structs.peripheralSamples.xboxController;
 public class EventListener_XBoxController {
     public enum componentOfController {
+    // list as polled from controller (not alphabetical).
         KEY_RECORD,
         BUTTON_0,
         BUTTON_1,
@@ -61,123 +59,96 @@ public class EventListener_XBoxController {
                                     switch(componentToSample)
                                     {
                                         case KEY_RECORD:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_KEY_RECORD(component.getData());
                                             break;
                                         case BUTTON_0:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_0(component.getData());
                                             break;
                                         case BUTTON_1:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_1(component.getData());
                                             break;
                                         case BTN_C:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BTN_C(component.getData());
                                             break;
                                         case BUTTON_2:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_2(component.getData());
                                             break;
                                         case BUTTON_3:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_3(component.getData());
                                             break;
                                         case BTN_Z:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BTN_Z(component.getData());
                                             break;
                                         case BUTTON_4:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_4(component.getData());
                                             break;
                                         case BUTTON_5:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_5(component.getData());
                                             break;
                                         case BTN_TL2:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BTN_TL2(component.getData());
                                             break;
                                         case BTN_TR2:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BTN_TR2(component.getData());
                                             break;
                                         case BUTTON_6:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_6(component.getData());
                                             break;
                                         case BUTTON_7:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_7(component.getData());
                                             break;
                                         case BUTTON_10:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_10(component.getData());
                                             break;
                                         case BUTTON_8:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_8(component.getData());
                                             break;
                                         case BUTTON_9:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_BUTTON_9(component.getData());
                                             break;
                                         case LEFT_AXIS_X:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_LEFT_AXIS_X(component.getData());
                                             break;
                                         case LEFT_AXIS_Y:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_LEFT_AXIS_Y(component.getData());
                                             break;
                                         case LEFT_AXIS_Z:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_LEFT_AXIS_Z(component.getData());
                                             break;
                                         case RIGHT_AXIS_Z:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_RIGHT_AXIS_Z(component.getData());
                                             break;
                                         case ABS_GAS:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_ABS_GAS(component.getData());
                                             break;
                                         case ABS_BRAKE:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_ABS_BRAKE(component.getData());
                                             break;
                                         case DPAD_LEFT_RIGHT:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_DPAD_LEFT_RIGHT(component.getData());
                                             break;
                                         case DPAD_UP_DOWN:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_DPAD_UP_DOWN(component.getData());
                                             break;
                                         case DPAD_UP:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_DPAD_UP(component.getData());
                                             break;
                                         case DPAD_DOWN:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_DPAD_DOWN(component.getData());
                                             break;
                                         case DPAD_LEFT:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_DPAD_LEFT(component.getData());
                                             break;
                                         case DPAD_RIGHT:
-                                            //sampleTEMP. = component.getData();
-                                            MenuMain.printConsoleAndOutput(component + " => " + component.getData());
+                                            sampleTEMP.dyn_REG_set_DPAD_RIGHT(component.getData());
                                             break;
                                         case NULL:
                                             break;
                                     }
+                                    MenuMain.printConsoleAndOutput(component + " => " + component.getData());
                                 }
                                 WriteQue_InputPerihperalSamples.app_FUNCT_write_Start(0);
-                                //obj.dyn_CLASS_get_App().dyn_CLASS_get_Data().dyn_CLASS_get_INSTANCE_Game()./* set values of float with*/(sampleTEMP); //todo
+                                obj.dyn_CLASS_get_App().dyn_CLASS_get_Data().dyn_CLASS_get_INSTANCE_Game().dyn_APP_saveSampleOfController((char) 0, sampleTEMP);
                                 cycleToNextComponent();
                             }
                             //MenuMain.printConsoleAndOutput(inputDevice.getName() + ":" + inputDevice.getComponents());
